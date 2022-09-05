@@ -3,7 +3,36 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.rohim.springboot1.repositories.IStudentMapper">
-  <select id="findById" parameterType="Integer" resultType="com.rohim.springboot1.models.Student">
+
+  <resultMap type='com.rohim.springboot1.models.Student' id='studentMap'>
+    <result property='id' column='id' />
+    <result property='Name' column='Name' />
+    <result property='Chinese' column='Chinese' />
+    <result property='Math' column='Math' />
+    <result property='English' column='English' />
+  </resultMap>
+
+  <select id="findById" parameterType="Integer"
+    resultType="com.rohim.springboot1.models.Student">
     SELECT id, Name, Chinese, Math, English FROM students where id = #{id}
   </select>
+
+  <select id="findAll" resultMap="studentMap">
+    SELECT id, Name, Chinese, Math, English FROM students
+  </select>
+
+  <insert id="insert" parameterType="com.rohim.springboot1.models.Student">
+    INSERT INTO students (Name, Chinese, Math, English)
+    VALUES (#{Name}, #{Chinese}, #{English}, #{Math});
+  </insert>
+
+  <delete id="deleteById" parameterType="Integer">
+    DELETE FROM students WHERE id = #{id}
+  </delete>
+
+  <update id="updateEnglish">
+    UPDATE students SET English = #{english}
+    WHERE id = #{id};
+  </update>
+  
 </mapper>
