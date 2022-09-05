@@ -72,4 +72,15 @@ public class TestController {
 	public Object update(@PathVariable("id") int id, @RequestParam("english") Integer english) {
 		return this.studentService.updateEnglish(id, english);
 	}
+	
+    /**
+     * For transaction test
+     * e.g. t1/insert2
+     * @throws Exception 
+     */
+	@RequestMapping(path = "t1/insert2", method = RequestMethod.GET)
+	@ResponseBody
+	public Object insert2students() {
+		return this.studentService.insert2Students() + " students inserted";
+	}
 }
