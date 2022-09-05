@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rohim.springboot1.repositories.IStudentMapper">
+  <select id="findById" parameterType="Integer" resultType="com.rohim.springboot1.models.Student">
+    SELECT id, Name, Chinese, Math, English FROM students where id = #{id}
+  </select>
+</mapper>
