@@ -14,4 +14,10 @@ public class TestController {
 	public Object t1() {
 		return "Hello World";
 	}
+	
+	@RequestMapping(path = "t2", method = RequestMethod.GET)
+	public String t2() {
+		// return "index"; << this would work too
+		return "index.html";
+	}
 }
