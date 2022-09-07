@@ -1,7 +1,12 @@
-<html>
+<html layout:decorate="~{layouts/layout-main.html}">
 <head>
+	<title>Home</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
 </head>
 <body>
-	<h2>Hello World</h2>
+	<div layout:fragment="content">
+	    <h2>Hello World</h2>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </body>
 </html>
