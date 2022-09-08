@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Students</title>
+</head>
+<body>
+	<h2 th:each="student: ${students}" th:text="|id:${student.getId()}, name:${student.getName()}|"></h2>
+</body>
+</html>
