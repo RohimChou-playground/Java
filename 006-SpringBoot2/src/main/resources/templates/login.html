@@ -6,10 +6,20 @@
 </head>
 <body>
 	<div class="container mt-4">
-		<h3>HomePage</h3>
-		
-		<p th:text="|Hello ${#httpServletRequest.remoteUser}|"></p>
-		<a th:href="@{/auth/logout}" class="btn btn-primary">Logout</a>
+		<form class="col-4" style="width:300px" method="POST" th:action="@{/auth/login}">
+	        <div class="text-danger" th:if="${param.error}">
+	            Invalid username and password.
+	        </div>
+			<div class="mb-3">
+				<label for="txbUserName" class="form-label">User Name</label>
+				<input type="text" class="form-control" id="txbUserName" name="username">
+			</div>
+			<div class="mb-3">
+				<label for="txbPassword" class="form-label">Password</label>
+				<input type="password" class="form-control" id="txbPassword" name="password">
+			</div>
+		  	<button type="submit" class="btn btn-primary">Login</button>
+		</form>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
