@@ -6,5 +6,7 @@ package com.rohimchou.consoleapp1;
  */
 public class App {
 	public static void main(String[] args) {
+		ReflectionLab r = new ReflectionLab();
+		r.run();
 	}
 }
