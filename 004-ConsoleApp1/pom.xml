@@ -21,5 +21,24 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    
+    <!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
+	<dependency>
+	    <groupId>org.reflections</groupId>
+	    <artifactId>reflections</artifactId>
+	    <version>0.10.2</version>
+	</dependency>
+	<!-- include these, or you'll get SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder" error -->
+	<dependency>
+		<groupId>org.apache.logging.log4j</groupId>
+		<artifactId>log4j-api</artifactId>
+		<version>2.17.2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.logging.log4j</groupId>
+		<artifactId>log4j-slf4j-impl</artifactId>
+		<version>2.17.2</version>
+	</dependency>
+
   </dependencies>
 </project>
