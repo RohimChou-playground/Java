@@ -28,26 +28,6 @@ public class ProductController {
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView index(@RequestParam(required = false) Integer id, HttpServletRequest request) {
 		
-		String queryStr = "";
-		if (request.getQueryString() != null) {
-			queryStr += "?" + request.getQueryString();
-		}
-		System.out.println();
-		System.out.println(request.getMethod() + " " 
-				+ request.getRequestURL() + queryStr);
-		System.out.println(request.getUserPrincipal().getName() + " " 
-				+ HttpUtils.getRequestIP(request) + " " 
-				+ request.getSession().getId());
-		// print all headers
-		Enumeration<String> headerNames = request.getHeaderNames();
-	    if (headerNames != null) {
-	        while (headerNames.hasMoreElements()) {
-	        	String headerName = headerNames.nextElement();
-	            System.out.println(headerName + ":" + request.getHeader(headerName));
-            }
-	    }
-
-		
 		List<Product> products = new ArrayList<Product>();
 		if (id == null) {
 			products = this.productService.findAll();
