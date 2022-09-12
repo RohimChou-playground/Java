@@ -1,7 +1,10 @@
 package com.rohim.springboot2.controllers;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.rohim.springboot2.models.Product;
 import com.rohim.springboot2.services.ProductService;
-import com.rohim.springboot2.services.UserService;
+import com.rohim.springboot2.utils.HttpUtils;
 
 @Controller
 @RequestMapping(path="/products")
@@ -23,7 +26,27 @@ public class ProductController {
 	ProductService productService;
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public ModelAndView index(@RequestParam(required = false) Integer id) {
+	public ModelAndView index(@RequestParam(required = false) Integer id, HttpServletRequest request) {
+		
+		String queryStr = "";
+		if (request.getQueryString() != null) {
+			queryStr += "?" + request.getQueryString();
+		}
+		System.out.println();
+		System.out.println(request.getMethod() + " " 
+				+ request.getRequestURL() + queryStr);
+		System.out.println(request.getUserPrincipal().getName() + " " 
+				+ HttpUtils.getRequestIP(request) + " " 
+				+ request.getSession().getId());
+		// print all headers
+		Enumeration<String> headerNames = request.getHeaderNames();
+	    if (headerNames != null) {
+	        while (headerNames.hasMoreElements()) {
+	        	String headerName = headerNames.nextElement();
+	            System.out.println(headerName + ":" + request.getHeader(headerName));
+            }
+	    }
+
 		
 		List<Product> products = new ArrayList<Product>();
 		if (id == null) {
