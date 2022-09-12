@@ -17,6 +17,7 @@ public class TestController {
 	@ResponseBody
 	public Object t1() {
 		this.logger1.error("Hello World From logger1");
+		this.logger1.debug("Some Debug Info");
 		return "Hello World";
 	}
 }

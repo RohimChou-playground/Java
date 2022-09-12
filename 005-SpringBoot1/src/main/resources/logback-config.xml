@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%thread] %-42logger{42} %-35(\(%class{0}.java:%line\)): %msg%n</pattern>
+    </encoder>
+  </appender>
+	<property name="LOG_DIR" value="D:/logs/springboot1" />
+	<property name="LOG_FILE" value="Hello" />
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_DIR}/${LOG_FILE}.log</file>
+		<append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- rolling perminute -->
+            <fileNamePattern>${LOG_DIR}/${LOG_FILE}.%d{yyyy-MM-dd-HH-mm}.%i.log</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <!-- keep 30 days' history -->
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>5GB</totalSizeCap>
+        </rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%thread] %-42logger{42} %-35(\(%class{0}.java:%line\)): %msg%n</pattern>
+		</encoder>
+	</appender>
+  <root level="INFO">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+  </root>
+  
+  <!-- without additivity="false", will log twice.
+       cus loggers are hierarchical, com.rohim.springboot2 would inherit root's
+       you can also remove the appender-ref elements from this logger, 
+       since those are already inherited from the root logger.
+  -->
+  <logger name="com.rohim.springboot1" level="DEBUG" additivity="false">
+      <appender-ref ref="STDOUT"/>
+      <appender-ref ref="FILE" />
+  </logger>
+</configuration>
