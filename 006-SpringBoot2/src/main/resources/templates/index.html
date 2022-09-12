@@ -9,6 +9,7 @@
 		<h3>HomePage</h3>
 		
 		<p th:text="|Hello ${#httpServletRequest.remoteUser}|"></p>
+		<a th:href="@{/products}" class="btn btn-primary">Products</a>
 		<a th:href="@{/auth/logout}" class="btn btn-primary">Logout</a>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

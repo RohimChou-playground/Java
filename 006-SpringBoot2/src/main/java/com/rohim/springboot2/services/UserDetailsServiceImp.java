@@ -35,7 +35,15 @@ public class UserDetailsServiceImp implements UserDetailsService {
 			u.setPassword(this.pwdEncoder.encode("1234"));
 			
 			return u;
+		} else if (username.equalsIgnoreCase("user")) {
+			User u = new User();
+			u.setId(1);
+			u.setName("user");
+			u.setPassword(this.pwdEncoder.encode("1234"));
+			
+			return u;
 		}
+		
 		return null;
 	}
 }

@@ -23,6 +23,7 @@ public class WebSecurityConfig {
 			.authorizeHttpRequests((requests) -> requests
 // 				.antMatchers("/", "/home").permitAll()
 				.anyRequest().authenticated()
+//				.anyRequest().permitAll()
 			)
 			.formLogin((form) -> form
 				.loginPage("/auth/login")
