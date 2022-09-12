@@ -2,7 +2,7 @@
 <configuration>
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
-      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%thread] %-42logger{42} %-35(\(%class{0}.java:%line\)): %msg%n</pattern>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %X{firstName:-ABC} [%thread] %-42logger{42} %-35(\(%class{0}.java:%line\)): %msg%n</pattern>
     </encoder>
   </appender>
 	<property name="LOG_DIR" value="D:/logs/springboot1" />
