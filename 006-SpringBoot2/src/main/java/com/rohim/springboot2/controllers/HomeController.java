@@ -15,4 +15,12 @@ public class HomeController {
 		
 		return mw;
 	}
+	
+	@RequestMapping(path="/mylogin", method=RequestMethod.GET)
+	public ModelAndView mylogin() {
+		ModelAndView mw = new ModelAndView();
+		mw.setViewName("mylogin.html");
+		
+		return mw;
+	}
 }
