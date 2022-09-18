@@ -1,6 +1,7 @@
 package com.rohim.springboot2.models;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
 	private int id;
@@ -8,6 +9,7 @@ public class User {
 	private String password;
 	private Integer points;
 	private Date createdon;
+	private List<String> roles;
 	
 	public int getId() {
 		return id;
@@ -38,5 +40,11 @@ public class User {
 	}
 	public void setCreatedOn(Date cretaedon) {
 		this.createdon = cretaedon;
+	}
+	public List<String> getRoles() {
+		return roles;
+	}
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
 	}
 }

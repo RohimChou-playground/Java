@@ -1,5 +1,7 @@
 package com.rohim.springboot2.services;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -33,6 +35,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
 			u.setId(1);
 			u.setName("root");
 			u.setPassword(this.pwdEncoder.encode("1234"));
+			u.setRoles(Arrays.asList("ROLE_ADMIN"));
 			
 			return u;
 		} else if (username.equalsIgnoreCase("user")) {
@@ -40,6 +43,15 @@ public class UserDetailsServiceImp implements UserDetailsService {
 			u.setId(1);
 			u.setName("user");
 			u.setPassword(this.pwdEncoder.encode("1234"));
+			u.setRoles(Arrays.asList("ROLE_USER"));
+			
+			return u;
+		} else if (username.equalsIgnoreCase("productadmin")) {
+			User u = new User();
+			u.setId(1);
+			u.setName("productadmin");
+			u.setPassword(this.pwdEncoder.encode("1234"));
+			u.setRoles(Arrays.asList("ROLE_USER", "ROLE_PRODUCTS_ADMIN"));
 			
 			return u;
 		}

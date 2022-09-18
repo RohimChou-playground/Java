@@ -21,9 +21,11 @@ public class WebSecurityConfig {
 		http
 			.csrf().disable()
 			.authorizeHttpRequests((requests) -> requests
-// 				.antMatchers("/", "/home").permitAll()
+ 				.antMatchers("/products")
+ 				.hasAnyRole("ADMIN", "PRODUCTS_ADMIN")
+ 				// could also use .hasAnyAuthority("ROLE_ADMIN", "ROLE_PRODUCTS_ADMIN")
+ 				// just prepend ROLE_
 				.anyRequest().authenticated()
-//				.anyRequest().permitAll()
 			)
 			.formLogin((form) -> form
 				.loginPage("/auth/login")
