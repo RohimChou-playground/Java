@@ -1,5 +1,6 @@
 package com.rohim.springboot2.configs;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,15 +17,15 @@ import com.rohim.springboot2.services.UserDetailsServiceImp;
 @EnableWebSecurity
 public class WebSecurityConfig {
 
+	@Autowired
+	private MyAuthorizationManager myAuthorizationManager;
+	
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http
 			.csrf().disable()
 			.authorizeHttpRequests((requests) -> requests
- 				.antMatchers("/products")
- 				.hasAnyRole("ADMIN", "PRODUCTS_ADMIN")
- 				// could also use .hasAnyAuthority("ROLE_ADMIN", "ROLE_PRODUCTS_ADMIN")
- 				// just prepend ROLE_
+				.antMatchers("/products/**").access(myAuthorizationManager)
 				.anyRequest().authenticated()
 			)
 			.formLogin((form) -> form
