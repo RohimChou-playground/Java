@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ public class ProductController {
 	@Autowired
 	ProductService productService;
 	
+	@PreAuthorize("hasRole('ROLE_role1')")
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView index(@RequestParam(required = false) Integer id) {
 		
