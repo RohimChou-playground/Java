@@ -2,18 +2,14 @@ package com.rohim.consoleapp;
 
 public class Task1 implements Runnable {
     public void run() {
-        try {
-            String threadName = Thread.currentThread().getName();
-            synchronized (SharedResource.obj1) {
-                System.out.println(threadName + ": 取得 obj1 的鎖");
-                Thread.sleep(1000);
-                System.out.println(threadName + ": 等待 obj2 的鎖");
-                synchronized (SharedResource.obj2) {
-                    System.out.println(threadName + ": 取得 obj2 的鎖");
-                }
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Thread.currentThread().getName() + " says: Task1 triggered (" + (i + 1) + ")");
+
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                System.out.println(Thread.currentThread().getName() + " says: " + e.getMessage());
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 }
