@@ -15,18 +15,43 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <dependencies></dependencies>
+  <dependencies>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>5.3.5</version>
+      </dependency>
+  </dependencies>
 
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>3.3.0</version>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.4.2</version>
+        <executions>
+          <execution>
+            <!-- bind to the packaging phase -->
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
         <configuration>
+          <!-- prevent create another consoleapp-1.0-jar-with-dependencies.jar
+               however will receive these warnings:
+                [WARNING] Artifact: com.rohim:consoleapp:jar:1.0 references the same file as the assembly destination file. Moving it to a temporary location for inclusion.
+                [WARNING] Configuration option 'appendAssemblyId' is set to false.
+                          Instead of attaching the assembly file: D:\Codes\Java\007-Maven\03-MinimalConsole\target\consoleapp-1.0.jar, it will become the file for main project artifact.
+                [WARNING] Replacing pre-existing project main-artifact file: D:\Codes\Java\007-Maven\03-MinimalConsole\target\archive-tmp\consoleapp-1.0.jar
+                          with assembly file: D:\Codes\Java\007-Maven\03-MinimalConsole\target\consoleapp-1.0.jar
+          -->
+          <appendAssemblyId>false</appendAssemblyId>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
           <archive>
             <manifest>
-              <addClasspath>true</addClasspath>
               <mainClass>com.rohim.consoleapp.App</mainClass>
             </manifest>
           </archive>
