@@ -1,8 +1,22 @@
-this is the minimal maven java console app setup
-create by manually adding the folder & files
+`mvn install` to install plugin to C:\Users\{User}\.m2\repository\
 
-to build & run it
+### to use it in another project
+
+```xml
+<build>
+  <plugins>
+    <plugin>
+      <groupId>com.rohim</groupId>
+      <artifactId>rohim-maven-plugin</artifactId>
+      <version>1.0</version>
+    </plugin>
+  </plugins>
+</build>
 ```
-mvn clean package
-java -jar target\consoleapp-1.0.jar
-```
+
+and run `mvn rohim:sayhi`
+
+
+### to display plugin info
+
+`mvn help:describe -Dplugin=com.rohim:rohim-maven-plugin:1.0`
