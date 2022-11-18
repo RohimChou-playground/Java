@@ -1,5 +1,5 @@
 # usally this file would be called something like jbdc.properties, for demo, name it to aaa.txt
 driver=com.microsoft.sqlserver.jdbc.SQLServerDriver
-url=jdbc:sqlserver://35.72.34.65\\SQLExpress:18031;databaseName=CAIS_UAT
-username=cais_uat_usr
-password=C5jw@3yt4!!55SHE66
+url=jdbc:sqlserver://XX.XX.XX.XX\\SQLExpress:XXX;databaseName=CAIS_UAT
+dbusername=XXXXXXX
+password=XXXXXXX

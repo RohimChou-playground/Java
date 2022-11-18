@@ -3,18 +3,18 @@
 
 <configuration>
     <!-- Usally would called mybatis-config.xml, for demo, name it to aaa.txt -->
-    <properties resource="aaa.txt" />
+    <!-- <properties resource="aaa.txt" />
     <environments default="sqlServer">
         <environment id="sqlServer">
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
                 <property name="driver" value="${driver}" />
                 <property name="url" value="${url}" />
-                <property name="username" value="${username}" />
+                <property name="username" value="${dbusername}" />
                 <property name="password" value="${password}" />
             </dataSource>
         </environment>
-    </environments>
+    </environments> -->
     <mappers>
         <mapper resource="aaaEmpMapper.xml" />
     </mappers>
