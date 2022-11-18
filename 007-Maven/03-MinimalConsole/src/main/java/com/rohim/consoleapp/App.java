@@ -18,7 +18,7 @@ public class App {
         // System.out.println(properties);
         
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        EmpModel emp = sqlSession.selectOne("findByCn", "Z00014054");
+        EmpModel emp = sqlSession.getMapper(IEmpMapper.class).findByCn("Z00014054");
         System.out.println(emp.getFull_name());
         sqlSession.close();
     }
