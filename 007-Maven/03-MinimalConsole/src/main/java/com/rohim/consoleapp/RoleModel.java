@@ -1,8 +1,11 @@
 package com.rohim.consoleapp;
 
+import org.springframework.stereotype.Component;
+
+@Component("role2")
 public class RoleModel {
-    private int id;
-    private String name;
+    private int id = 2;
+    private String name = "regional manager";
 
     public int getId() {
         return id;
