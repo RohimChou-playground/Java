@@ -1,10 +1,14 @@
 package com.rohim.consoleapp;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class UserModel {
     private int id;
     private String name;
     private int age;
-    private RoleModel role;
+
+    @Autowired
+    private RoleModel role1;
     
     public int getId() {
         return id;
@@ -25,9 +29,9 @@ public class UserModel {
         this.age = age;
     }
     public RoleModel getRole() {
-        return role;
+        return role1;
     }
     public void setRole(RoleModel role) {
-        this.role = role;
+        this.role1 = role;
     }
 }
