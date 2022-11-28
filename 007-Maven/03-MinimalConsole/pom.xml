@@ -52,7 +52,7 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>com.rohim.consoleapp.App</mainClass>
+              <mainClass>com.rohim.consoleapp.Main</mainClass>
             </manifest>
           </archive>
         </configuration>
