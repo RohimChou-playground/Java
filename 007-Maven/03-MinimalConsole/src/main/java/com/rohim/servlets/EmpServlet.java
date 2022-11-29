@@ -12,4 +12,10 @@ public class EmpServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().write("Employee 123!");
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String empName = req.getParameter("empName");
+        resp.getWriter().write("Hello Emp " + empName);
+    }
 }
