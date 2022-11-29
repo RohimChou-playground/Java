@@ -8,6 +8,10 @@
     <servlet>
         <servlet-name>EmpServlet1</servlet-name>
         <servlet-class>com.rohim.servlets.EmpServlet</servlet-class>
+        <init-param>
+            <param-name>currentEnv</param-name>
+            <param-value>SIT</param-value>
+        </init-param>
     </servlet>
     <servlet>
         <servlet-name>ContactServlet1</servlet-name>
