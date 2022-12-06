@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.rohim</groupId>
+    <artifactId>utils</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0</version>
+    <name>utils</name>
+
+    <properties>
+        <!-- if omitted, will receive these warnings when package:
+            [WARNING] Using platform encoding (MS950 actually) to copy filtered resources, i.e. build is platform dependent!
+            [WARNING] File encoding has not been set, using platform encoding MS950, i.e. build is platform dependent!
+        -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies></dependencies>
+
+    <build>
+        <!-- if omitted, the jar would be lik xxx-1.0.jar-->
+        <finalName>utils</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
