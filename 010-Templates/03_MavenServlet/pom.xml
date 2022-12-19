@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.rohim</groupId>
@@ -9,10 +10,18 @@
 
   <properties>
     <!-- if omitted, will receive these warnings:
-      [WARNING] Using platform encoding (MS950 actually) to copy filtered resources, i.e. build is platform dependent!
-      [WARNING] File encoding has not been set, using platform encoding MS950, i.e. build is platform dependent!
+      [WARNING] Using platform encoding (MS950
+    actually) to copy filtered resources, i.e. build is platform dependent!
+      [WARNING] File
+    encoding has not been set, using platform encoding MS950, i.e. build is platform dependent!
     -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>1.8</java.version>
+    <!-- if omitted, will receive these errors when annotate implements method with @Override:
+        method xxx of type xxx must override a superclass method
+    -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -22,6 +31,12 @@
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
       <scope>provided</scope>
+    </dependency>
+    <!-- for filter -->
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>8.0</version>
     </dependency>
   </dependencies>
 
