@@ -2,6 +2,9 @@ package com.rohim.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.rohim.models.User;
 
 @Controller
 public class HomeController {
@@ -18,6 +21,13 @@ public class HomeController {
         // 返回逻辑视图 逻辑视图相当于视图的别名 通过这个找到物理视图，也就是真正的视图
         // 这里返回的只是页面的名称，不是完整的页面访问路径
         // 也可以寫成 index.jsp
+        return "index";
+    }
+
+    @RequestMapping(path = "/home/addUser", method = RequestMethod.POST)
+    public String addUser(User user) {
+        System.out.println("============ HomeController.addUser() POST triggered! ============");
+        System.out.println(user);
         return "index";
     }
 }
