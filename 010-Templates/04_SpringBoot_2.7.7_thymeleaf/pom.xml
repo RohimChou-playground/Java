@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.7</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.rohim</groupId>
+	<artifactId>web</artifactId>
+	<version>1.0</version>
+	<name>web</name>
+	<properties>
+		<!-- 
+			without this, will receive these warnings:
+            [WARNING] Using platform
+				encoding (MS950 actually) to copy filtered resources, i.e. build is platform dependent!
+			[WARNING] File encoding has not been set, using platform encoding MS950, i.e. build is
+				platform dependent!
+        -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<!-- 
+			without this, will receive these errors when annotate implements method with @Override:
+			method xxx of type xxx must override a superclass method
+        -->
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- for hot reload capability in development process -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<!-- version 2.7.7 (from parent)  -->
+			<optional>true</optional>
+		</dependency>
+
+		<!-- for dynamic thymeleaf .html under templates -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<!-- for dynamic thymeleaf .html under templates -->
+		<dependency>
+			<groupId>nz.net.ultraq.thymeleaf</groupId>
+			<artifactId>thymeleaf-layout-dialect</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<!-- final jar name -->
+		<finalName>web</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<!-- for copy, clean up files of the build folder (/target) -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<?m2e execute onConfiguration, onIncremental?> <!-- for muting warning of eclipse's m2e plugin -->
+						<phase>process-resources</phase>
+						<configuration>
+							<tasks>
+								<copy todir="${build.directory}"
+									file="${basedir}/src/main/resources/application.properties" />
+								<copy todir="${build.directory}" file="${basedir}/README.md" />
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
