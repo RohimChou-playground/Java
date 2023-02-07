@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.ehcache.org/v3"
+	xmlns:jsr107="http://www.ehcache.org/v3/jsr107"
+	xsi:schemaLocation="http://www.ehcache.org/v3 
+	                        http://www.ehcache.org/schema/ehcache-core-3.2.xsd
+	                        http://www.ehcache.org/v3/jsr107
+	                        http://www.ehcache.org/schema/ehcache-107-ext-3.2.xsd">
+
+	<persistence directory="java.io.tmpdir" />
+
+	<cache-template name="default">
+		<resources>
+			<heap unit="entries">10</heap>
+			<offheap unit="MB">10</offheap>
+		</resources>
+	</cache-template>
+
+    <!-- 重點 -->
+	<cache alias="Users" uses-template="default">
+        <key-type>java.lang.Integer</key-type>
+        <value-type>com.rohim.web.models.User</value-type>
+		<expiry>
+			<ttl unit="seconds">10</ttl>
+		</expiry>
+	</cache>
+
+	<cache alias="Orders" uses-template="default">
+		<expiry>
+			<ttl unit="seconds">600</ttl>
+		</expiry>
+	</cache>
+
+</config>
