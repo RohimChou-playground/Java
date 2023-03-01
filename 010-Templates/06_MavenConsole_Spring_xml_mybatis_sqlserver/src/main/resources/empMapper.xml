@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rohim.consoleapp.IEmpMapper">
+    <select id="findByCn" parameterType="String" resultType="com.rohim.consoleapp.EmpModel">
+    SELECT TOP 1 CN, FULL_NAME FROM PUB_EMPLOYEE_HISTORY where cn = #{cn}
+  </select>
+</mapper>
