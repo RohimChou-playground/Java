@@ -83,6 +83,8 @@
 							<tasks>
 								<copy todir="${build.directory}"
 									file="${basedir}/src/main/resources/application.properties" />
+								<copy todir="${build.directory}"
+									file="${basedir}/src/main/resources/application-dev.properties" />
 								<copy todir="${build.directory}" file="${basedir}/README.md" />
 							</tasks>
 						</configuration>
