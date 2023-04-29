@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servlet</title>
+</head>
+
+<body style="width:500px">
+    <h1>Servlet Hello World</h1>
+
+    <div style="background-color:lightblue;">
+        <p>
+            click <a href="students">students</a> will navigate to /servlet/students.do,
+            which is reponsible by StudentAction.java doGet() method. If you not login yet,
+            will redirect you to login page first.
+        </p>
+    </div>
+
+    <form action="createstudent" method="post" style="background-color:lightyellow;">
+        <p>Here's a form that can create new student. Will form post to servlet/createstudent
+            after submission<br />
+            Try AAAA (or any others will success) and BBBB (will failed)
+        </p>
+        <input type="text" name="studentName" />
+        <input type="submit" value="submit" />
+    </form>
+
+    <div>
+        <a href="login.html">login</a>
+    </div>
+</body>
+
+</html>

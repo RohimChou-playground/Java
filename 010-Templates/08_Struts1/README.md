@@ -4,7 +4,7 @@ execute following in cmd:
 
 ```
 call git clone https://github.com/RohimChou-playground/Java.git &^
-cd Java\010-Templates\07_Struts1 &^
+cd Java\010-Templates\08_Struts1 &^
 call mvn clean package
 ```
 
