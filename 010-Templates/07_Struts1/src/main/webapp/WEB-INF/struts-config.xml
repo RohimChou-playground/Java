@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+    <form-beans>
+        <form-bean name="studentForm" type="com.rohim.forms.StudentForm" />
+    </form-beans>
+    <action-mappings>
+        <!-- whenever request this url: http://xxx/xx/student.do, the request will be mapped to StudentAction.java -->
+        <action path="/students" type="com.rohim.actions.StudentAction"></action>
+        <action path="/createstudent" type="com.rohim.actions.StudentCreateAction" name="studentForm">
+            <!-- with redirect="true" redirected URL information is in the header instructing the browser to move to the next URL -->
+            <forward name="createdSuccessfully" path="/students.do" redirect="true" />
+            <forward name="createdFailed" path="/WEB-INF/failed.jsp" />
+        </action>
+    </action-mappings>
+</struts-config>

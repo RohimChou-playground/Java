@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struts1</title>
+</head>
+<body style="width:500px">
+    <h1>Sturt1 Hello World</h1>
+
+    <div style="background-color:lightblue;">
+        <p>
+            click <a href="students.do">students.do</a> will navigate to /struts1/students.do,
+            which is reponsible by StudentAction.java execute() method
+        </p>
+    </div>
+
+    <form action="createstudent.do" method="post" style="background-color:lightyellow;">
+        <p>Here's a form that can create new student. Will form post to struts1/createstudent.do 
+            after submission<br/>
+            Try AAAA (or any others will success) and BBBB (will failed)
+        </p>
+        <input type="text" name="studentName" />
+        <input type="submit" value="submit" />
+    </form>
+</body>
+</html>
