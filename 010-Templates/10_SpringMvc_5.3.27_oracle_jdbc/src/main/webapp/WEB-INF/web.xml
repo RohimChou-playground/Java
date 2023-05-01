@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- using servlet 4.0 web.xml descriptors -->
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0" >
+
+  <display-name>Spring 5 WebApp</display-name>
+
+  <context-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+
+  <!-- This is required for loading applicationContext.xml -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <!-- DispatcherServlet acts as a front controller.
+        All incoming request passes through it first 
+       The job of DispatcherServlet is to find the right Controller for 
+        processing the request, and then when the handler method returns 
+        the logical view name, it also consults view resolvers to find the actual View.
+  -->
+  <servlet>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <!-- by default, framework try to locate the config file under /WEB-INF first -->
+      <param-value>classpath:spring-mvc.xml</param-value>
+    </init-param>
+    <!--
+      1）By default，spring-mvc.xml is loaded after first http request
+      2）It can be changed to loaded after the project starts up, improving the user's access experience.
+          <load-on-startup>1</load-on-startup>
+          The lower the value, the earlier the creation.
+		-->
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <!-- url-pattern examples: -->
+    <!--  /    match all requests;（but not .jsp）-->
+    <!--  /*   match all requests;（also .jsp）-->
+    <!--  *.do match all requests end with .do -->
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+</web-app>
