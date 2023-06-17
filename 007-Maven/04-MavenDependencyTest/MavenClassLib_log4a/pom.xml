@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.rohim</groupId>
+    <artifactId>log4a</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0</version>
+    <name>log4a</name>
+
+    <properties>
+        <!-- if omitted, will receive these warnings when package:
+            [WARNING] Using platform encoding (MS950 actually) to copy filtered resources, i.e. build is
+        platform dependent!
+            [WARNING] File encoding has not been set, using platform encoding MS950, i.e. build is platform
+        dependent!
+        -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- if omitted, will receive these errors when annotate implements method with @Override:
+        method xxx of type xxx must override a superclass method in vscode
+        -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>my</id>
+            <url>file://..\lib</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.rohim</groupId>
+            <artifactId>sayhiutil</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!-- if omitted, the jar would be lik xxx-1.0.jar-->
+        <finalName>log4a</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
