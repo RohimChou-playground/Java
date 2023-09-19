@@ -1,0 +1,11 @@
+// will affect the jar name
+rootProject.name = 'my-app'
+
+include ':contact-core', ':contact-infra', ':customer-core', ':customer-infra'
+
+// alias, so the project name won't collide
+// must put this after include
+project(':contact-core').projectDir = file('modules/contact/core')
+project(':contact-infra').projectDir = file('modules/contact/infra')
+project(':customer-core').projectDir = file('modules/customer/core')
+project(':customer-infra').projectDir = file('modules/customer/infra')
