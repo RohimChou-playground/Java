@@ -1,3 +1,5 @@
 call runbuild.bat
 
-java -cp build\libs\21_GradleConsole.jar com.rohim.Main
+@rem java -cp build\libs\consoleapp.jar com.rohim.Main
+java -jar build\libs\consoleapp.jar
+

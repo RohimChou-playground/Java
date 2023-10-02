@@ -7,3 +7,18 @@ repositories {
 }
 
 dependencies {}
+
+jar {
+  // specify .jar name. if no set, default is {rootfoldername}-{version}.jar
+  archiveFileName = 'consoleapp.jar'
+
+  // for creating runnable jar, by specifying main class in manifest
+  manifest {
+    attributes 'Main-Class': 'com.rohim.Main'
+  }
+
+  // for creating jar with dependencies (fat jar)
+  from {
+    configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+  }
+}
