@@ -6,6 +6,10 @@ repositories {
   mavenCentral()
 }
 
+tasks.withType(JavaCompile) {
+  options.encoding = 'UTF-8' // so that the hardcoded strings in the source code are stored correctly in the binary
+}
+
 dependencies {}
 
 jar {
