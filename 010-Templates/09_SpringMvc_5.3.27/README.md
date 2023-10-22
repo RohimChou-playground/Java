@@ -1,11 +1,21 @@
-this is template project of spring
+## Static Resources
+http://localhost:8080/spring5/ 
+    -> webapp/index.html
 
-execute following in cmd:
+http://localhost:8080/spring5/backend/aaa/aaa.html 
+    -> <mvc:resources mapping="/aaa/**" location="/WEB-INF/static/"></mvc:resources>
+    -> webapp/WEB-INF/static/aaa.html
 
-```
-call git clone https://github.com/RohimChou-playground/Java.git &^
-cd Java\010-Templates\09_SpringMvc_5.3.27 &^
-call mvn clean package
-```
+http://localhost:8080/spring5/backend/bbb/aaa.html
+    -> <mvc:resources mapping="/bbb/**" location="classpath:/static/"></mvc:resources>
+    -> src/main/resources/static/aaa.html
 
-copy paste `target\spring5.war` to tomcat’s \webapps folder or jboss’s (13.0.0 and above) \standalone\deployments folder
+## Through Controller
+http://localhost:8080/spring5/backend/api/users 
+    -> UsersController.getUsers() -> String[]
+
+http://localhost:8080/spring5/backend/page/users 
+    -> UsersPageController.getUsers() -> webapp/WEB-INF/pages/users.jsp
+
+http://localhost:8080/spring5/backend/page/addUser 
+    -> UsersPageController.addUser() -> webapp/WEB-INF/pages/addUser.jsp

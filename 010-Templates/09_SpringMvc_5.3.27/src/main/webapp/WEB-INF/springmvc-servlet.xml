@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                          http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- register the annotated components in the container eg : annotated controllers -->
+    <context:component-scan base-package="com.rohim.controllers"></context:component-scan>
+
+    <!-- Tell the container that we are going to use annotations -->
+    <context:annotation-config/>
+
+    <!-- for controller to return json -->
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!-- if need to return json by defult: -->
+    <!-- Return JSON by default when not sure -->
+    <!--<bean id="contentNegotiationManager"-->
+    <!--      class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">-->
+    <!--    <property name="defaultContentType" value="application/json"/>-->
+    <!--</bean>-->
+    <!-- Make this available across all of Spring MVC -->
+    <!--<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>-->
+
+    <!-- for serving .jsp view -->
+    <bean id="ViewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/> <!-- search view under this directory -->
+        <property name="suffix" value=".jsp"/> <!-- search view end with this extension -->
+    </bean>
+
+    <!-- for serving static resources -->
+    <!-- find the resources in .war -->
+    <!-- request http://localhost:8080/spring5/backend/aaa/aaa.html, return /WEB-INF/static/aaa.html -->
+    <mvc:resources mapping="/aaa/**" location="/WEB-INF/static/"></mvc:resources>
+    <!-- request http://localhost:8080/spring5/backend/bbb/aaa.html, return /resources/static/aaa.html -->
+    <mvc:resources mapping="/bbb/**" location="classpath:/static/"></mvc:resources>
+</beans>
